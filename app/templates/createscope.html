@@ -1,0 +1,48 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}  Project Page {% endblock %}
+{% block content %}
+    <div class="container">
+        <h1>Project Page</h1>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li> {{ message[1] }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.stage.label }} {{ form.stage(class="form-control", placeholder="Project Name", size=10) }}
+            </div>
+
+            <div class="form-group">
+                {{ form.description.label }} {{ form.description(class="form-control", placeholder="Enter description", size=300) }}
+            </div>
+
+            <div class="form-group">
+                {{ form.reason.label }} {{ form.reason(class="form-control", placeholder="Enter description") }}
+            </div>
+
+            <div class="form-group">
+                {{ form.estimate.label }} {{ form.estimate(class="form-control", placeholder="5") }}
+            </div>
+
+            <div class="form-group">
+                {{ form.comments.label }} {{ form.comments(class="form-control", placeholder="Enter comments") }}
+            </div>
+
+            <div class="form-group">
+                {{ form.rate.label }} {{ form.rate(class="form-control", placeholder="300") }}
+            </div>
+
+            <div class="input submit">
+                {{ form.submit() }}
+            </div>
+        </form>
+
+    </div>
+{% endblock %}

@@ -13,7 +13,8 @@
                 </ul>
             {% endif %}
         {% endwith %}
-        <form action="" method="post">
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
             <div class="form-group">
                 {{ form.name.label }} {{ form.name(class="form-control", placeholder="Project Name") }}
             </div>
@@ -23,7 +24,7 @@
             </div>
 
             <div class="input submit">
-                <button type="submit" class="btn btn-success"> Submit </button>
+                {{ form.submit() }}
             </div>
         </form>
 
